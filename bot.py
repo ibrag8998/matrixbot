@@ -26,15 +26,12 @@ def notification(message):
 @bot.message_handler(content_types=['text'])
 def solve(message):
     mx = []
-    line = message.text.split('\n')
-    row = len(line)
+    lines = message.text.split('\n')
+    row = len(lines)
     if row == 0:
         return msg(bot, message, 'incorrect')
-    for i in range(len(line)):
-        if i == 0:
-            continue
-        else:
-            mx.append(line[i].split(' '))
+    for i in range(row):
+        mx.append(lines[i].split(' '))
     col = len(mx[0])
 
     for r in range(row):
