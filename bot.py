@@ -18,13 +18,18 @@ def started(message):
     msg(bot, message, '/mx\n1 2 3\n4 5 6\n7 8 9')
 
 
-@bot.message_handler(commands=['mx'])
+@bot.message_handler(commands=['mx']):
+def notification(message):
+    msg(bot, message, 'Now you can ignore the /mx command and just send me a matrix')
+
+
+@bot.message_handler(content_types=['text'])
 def solve(message):
     mx = []
     line = message.text.split('\n')
-    row = len(line)-1
+    row = len(line)
     if row == 0:
-        return msg(bot, message, 'uncorrect')
+        return msg(bot, message, 'incorrect')
     for i in range(len(line)):
         if i == 0:
             continue
