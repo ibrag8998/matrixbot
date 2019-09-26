@@ -15,7 +15,7 @@ bot = TeleBot(environ['TOKEN'])
 @bot.message_handler(commands=['start'])
 def started(message):
     msg(bot, message, 'Send me a matrix, so i will try to solve it. Example on how to send matrix:')
-    msg(bot, message, '/mx\n1 2 3\n4 5 6\n7 8 9')
+    msg(bot, message, '1 2 3\n4 5 6\n7 8 9')
 
 
 @bot.message_handler(commands=['mx'])
